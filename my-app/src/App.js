@@ -58,10 +58,6 @@ function AppContent() {
                       ))}
                   </div>
               </section>
-              <Routes>
-                  <Route path="/new-page" element={<NewPage/>}/>
-                  <Route path="/movie/:id" element={<MovieDetail/>}/>
-              </Routes>
           </div>
       )
   );
