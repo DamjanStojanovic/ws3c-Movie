@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import NewPage from './NewPage'; // Pfad zu Ihrer NewPage Komponente
+import logo from './logo.svg'; // adjust the path to match the actual location of your logo file
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Damjan Funktionierts??????
-        </a>
-      </header>
-    </div>
+      <Router>
+        <div className="App">
+          <header className="App-header">
+            <p>
+              Edit <code>src/App.js</code> and save to reload.
+            </p>
+            <Link to="/new-page">
+              <button>
+                Öffne neue Seite
+              </button>
+            </Link>
+          </header>
+          <Routes>
+            <Route path="/new-page" element={<NewPage />} />
+          </Routes>
+        </div>
+      </Router>
   );
 }
 
