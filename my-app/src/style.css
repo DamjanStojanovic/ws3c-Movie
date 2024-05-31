@@ -70,3 +70,68 @@ body {
 #movieDetail p {
     font-size: 1.2em;
 }
+
+/* src/style.css */
+body {
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    padding: 20px;
+}
+
+.navbar {
+    background-color: #333;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar-brand {
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.navbar-brand:hover {
+    color: #ddd;
+}
+
+#searchForm {
+    position: relative;
+}
+
+#searchInput {
+    padding: 0.5rem;
+    width: 200px;
+}
+
+#searchButton {
+    background-color: #555;
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+}
+
+#searchButton:hover {
+    background-color: #777;
+}
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1rem;
+    margin-top: 20px;
+}
+
+.movie-item img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.movie-item p {
+    text-align: center;
+    margin: 0.5rem 0;
+}
