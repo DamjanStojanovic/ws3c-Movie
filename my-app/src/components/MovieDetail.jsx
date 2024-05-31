@@ -5,6 +5,7 @@ import { fetchData } from '../api/api';
 const MovieDetail = () => {
     const { id } = useParams();
     const [movie, setMovie] = useState(null);
+    const [backgroundImage, setBackgroundImage] = useState([])
     const [trailer, setTrailer] = useState(null);
 
     useEffect(() => {
@@ -12,6 +13,13 @@ const MovieDetail = () => {
             try {
                 const data = await fetchData(`/movie/${id}?language=en-US&append_to_response=videos`);
                 setMovie(data);
+
+                const imageData = await fetchData(`/movie/${id}/images`);
+
+                if (imageData.backdrops && imageData.backdrops.length > 0) {
+                    setBackgroundImage(imageData.backdrops[0].file_path);
+                }
+
 
                 if (data.videos && data.videos.results) {
                     const trailer = data.videos.results.find(
@@ -34,6 +42,11 @@ const MovieDetail = () => {
     return (
         <div className="movie-detail-container">
             <div className="movie-detail-header">
+                <img
+                    className="movie-background"
+                    src={`https://image.tmdb.org/t/p/w300${backgroundImage}`}
+                    alt={movie.background}
+                />
                 <img
                     className="movie-poster"
                     src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}

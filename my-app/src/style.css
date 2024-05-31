@@ -3,7 +3,7 @@ body {
     color: #ffffff;
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 2vh 2vw 2vh 2vw;
+    padding: 2vh 2vw;
 }
 
 #title {
@@ -11,6 +11,7 @@ body {
 }
 
 #searchForm {
+    position: relative;
     margin-bottom: 20px;
 }
 
@@ -35,13 +36,14 @@ body {
     top: 0;
 }
 
-#results {
+#results, #popular-movies, #upcoming-movies {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
+    justify-content: space-between;
 }
 
-#results div {
+#results div, #movieDetail, .result-item {
     background-color: #444444;
     padding: 10px;
     border-radius: 5px;
@@ -49,21 +51,9 @@ body {
     width: 200px;
 }
 
-#results img {
-    border-radius: 5px;
-    max-width: 100%;
-}
-
 #movieDetail {
-    background-color: #444444;
     padding: 20px;
     border-radius: 10px;
-    text-align: center;
-}
-
-#movieDetail img {
-    border-radius: 10px;
-    max-width: 100%;
 }
 
 #movieDetail h1 {
@@ -75,36 +65,19 @@ body {
     font-size: 1.2em;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#results img, #movieDetail img, .result-item img {
+    border-radius: 5px;
+    max-width: 100%;
 }
 
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.colset-2-its {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-#popular-movies, #upcoming-movies {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+#movieDetail img {
+    border-radius: 10px;
 }
 
 #popular-movies .result-item, #upcoming-movies .result-item {
     overflow: hidden;
     height: 300px;
-    width: 200px;
     position: relative;
-    text-align: center;
 }
 
 #popular-movies img, #upcoming-movies img {
@@ -122,16 +95,16 @@ body {
     color: #ffffff;
 }
 
-
-
-
-/* src/style.css */
-body {
-    font-family: Arial, sans-serif;
+.container, .colset-2-its {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.container {
-    padding: 20px;
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .navbar {
@@ -150,27 +123,6 @@ body {
 
 .navbar-brand:hover {
     color: #ddd;
-}
-
-#searchForm {
-    position: relative;
-}
-
-#searchInput {
-    padding: 0.5rem;
-    width: 200px;
-}
-
-#searchButton {
-    background-color: #555;
-    color: white;
-    border: none;
-    padding: 0.5rem;
-    cursor: pointer;
-}
-
-#searchButton:hover {
-    background-color: #777;
 }
 
 .movie-grid {
