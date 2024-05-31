@@ -5,6 +5,7 @@ import MovieDetail from "./MovieDetail";
 
 function Home() {
     const [popularMovies, setPopularMovies] = useState([]);
+    const [upcomingMovies, setUpcomingMovies] = useState([]);
     const location = useLocation();
 
     const loadPopularMovies = async () => {
@@ -12,8 +13,14 @@ function Home() {
         setPopularMovies(data.results);
     };
 
+    const loadUpcomingMovies = async () => {
+        const data = await fetchData('/movie/upcoming?language=en-US&page=1');
+        setUpcomingMovies(data.results);
+    };
+
     useEffect(() => {
         loadPopularMovies();
+        loadUpcomingMovies();
     }, []);
 
     return (
@@ -30,13 +37,31 @@ function Home() {
                             movie.poster_path && movie.title && movie.title.trim() !== '' ? (
                                 <div key={movie.id}>
                                     <Link to={`movie/${movie.id}`}>
-                                        <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title}
+                                        <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                                             alt={movie.title}
                                              data-movie-id={movie.id}/>
                                     </Link>
                                     <p>{movie.title}</p>
                                 </div>
                             ) : null
                         ))}
+                    </div>
+                    <div>
+                        <h2>Upcoming Movies</h2>
+                        <div id="upcoming-movies">
+                            {upcomingMovies.map((movie) => (
+                                movie.poster_path && movie.title && movie.title.trim() !== '' ? (
+                                    <div key={movie.id} className="result-item">
+                                        <Link to={`movie/${movie.id}`}>
+                                            <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                                                 alt={movie.title}
+                                                 data-movie-id={movie.id}/>
+                                        </Link>
+                                        <p>{movie.title}</p>
+                                    </div>
+                                ) : null
+                            ))}
+                        </div>
                     </div>
                 </section>
             </div>
