@@ -14,10 +14,11 @@ const MovieDetail = () => {
                 const data = await fetchData(`/movie/${id}?language=en-US&append_to_response=videos`);
                 setMovie(data);
 
-                const imageData = await fetchData(`/movie/${id}/images`);
+                const imageData = await fetchData(`/movie/${id}/images?language=en`);
 
                 if (imageData.backdrops && imageData.backdrops.length > 0) {
-                    setBackgroundImage(imageData.backdrops[1].file_path);
+                    // TODO: find the optimal backdrop image to display
+                    setBackgroundImage(imageData.backdrops[0].file_path);
                 }
 
 
@@ -42,7 +43,7 @@ const MovieDetail = () => {
     return (
         <div className="movie-detail-container">
             <div className="movie-detail-header"
-                 style={{ backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 100%), url(https://image.tmdb.org/t/p/original${backgroundImage})` }}
+                 style={{ backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 100%), url(https://image.tmdb.org/t/p/original${backgroundImage})` }}
             >
                 <img
                     className="movie-poster"
