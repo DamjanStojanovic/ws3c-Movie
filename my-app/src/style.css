@@ -152,6 +152,18 @@ body {
     display: flex;
     align-items: flex-start;
     margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+    background-size: cover;
+    background-position: right;
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.movie-detail-header img.movie-poster {
+    position: relative;
+    z-index: 1;
 }
 
 .movie-poster {
@@ -162,6 +174,8 @@ body {
 
 .movie-info {
     max-width: 600px;
+    position: relative;
+    z-index: 1;
 }
 
 .movie-info h1 {
