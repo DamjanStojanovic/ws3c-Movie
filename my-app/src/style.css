@@ -10,6 +10,10 @@ body {
     font-size: 100px;
 }
 
+.logo {
+    width: 100px;
+}
+
 #searchForm {
     position: relative;
     margin-bottom: 20px;

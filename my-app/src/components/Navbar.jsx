@@ -7,7 +7,7 @@ const Navbar = () => {
 
   return (
       <nav className="navbar">
-        <Link to="/" className="navbar-brand">Home</Link>
+        <Link to="/" className="navbar-brand"><img src={`${process.env.PUBLIC_URL}/MovieDB-Logo_mobile.png`} alt="MovieDB" className="logo mobile-image" /></Link>
         <Search setMovies={setMovies}/>
       </nav>
   );
