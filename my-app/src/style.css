@@ -23,31 +23,6 @@ body {
     display: block;
 }
 
-#searchForm {
-    position: relative;
-}
-
-#searchInput {
-    width: 100%;
-    padding: 11px;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    padding-right: 60px;
-}
-
-#searchButton {
-    padding: 10px 20px;
-    border-radius: 5px;
-    border: none;
-    background-color: #00c3ff;
-    color: #ffffff;
-    cursor: pointer;
-    position: absolute;
-    right: 0;
-    top: 0;
-}
-
 #results, #popular-movies, #upcoming-movies {
     display: flex;
     flex-wrap: wrap;
@@ -135,6 +110,53 @@ body {
 
 .navbar-brand:hover {
     color: #ddd;
+}
+
+.search-container {
+    position: relative;
+    align-items: center;
+    transition: width 0.3s ease;
+    width: 100px;
+    overflow: hidden;
+}
+
+.search-container.open {
+    width: 200px;
+}
+
+#searchForm {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.search-input {
+    font-family: Jura;
+    width: 100%;
+    padding: 8px;
+    padding-right: 30px;
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.search-container.open .search-input {
+    opacity: 1;
+    visibility: visible;
+}
+
+.search-icon {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0;
+    margin-left: -25px;
+    z-index: 1;
 }
 
 .movie-grid {
