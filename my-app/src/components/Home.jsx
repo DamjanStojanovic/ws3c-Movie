@@ -35,12 +35,14 @@ function Home() {
                     <div id="popular-movies">
                         {popularMovies.map((movie) => (
                             movie.poster_path && movie.title && movie.title.trim() !== '' ? (
-                                <div key={movie.id}>
-                                    <Link to={`movie/${movie.id}`}>
-                                        <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-                                             alt={movie.title}
-                                             data-movie-id={movie.id}/>
-                                    </Link>
+                                <div>
+                                    <div key={movie.id} className="result-item">
+                                        <Link to={`movie/${movie.id}`}>
+                                            <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                                                alt={movie.title}
+                                                data-movie-id={movie.id}/>
+                                        </Link>
+                                    </div>
                                     <p>{movie.title}</p>
                                 </div>
                             ) : null
@@ -51,12 +53,14 @@ function Home() {
                         <div id="upcoming-movies">
                             {upcomingMovies.map((movie) => (
                                 movie.poster_path && movie.title && movie.title.trim() !== '' ? (
-                                    <div key={movie.id} className="result-item">
-                                        <Link to={`movie/${movie.id}`}>
-                                            <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-                                                 alt={movie.title}
-                                                 data-movie-id={movie.id}/>
-                                        </Link>
+                                    <div>
+                                        <div key={movie.id} className="result-item">
+                                            <Link to={`movie/${movie.id}`}>
+                                                <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                                                    alt={movie.title}
+                                                    data-movie-id={movie.id}/>
+                                            </Link>
+                                        </div>
                                         <p>{movie.title}</p>
                                     </div>
                                 ) : null
