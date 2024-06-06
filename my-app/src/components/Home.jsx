@@ -35,7 +35,7 @@ function Home() {
                     <div id="popular-movies">
                         {popularMovies.map((movie) => (
                             movie.poster_path && movie.title && movie.title.trim() !== '' ? (
-                                <div>
+                                <div className="movie">
                                     <div key={movie.id} className="result-item">
                                         <Link to={`movie/${movie.id}`}>
                                             <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}

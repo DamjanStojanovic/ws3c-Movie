@@ -23,6 +23,11 @@ body {
     display: block;
 }
 
+.movie {
+    width: 200px;
+    padding: 0px 10px 0px 10px;
+}
+
 #results, #popular-movies, #upcoming-movies {
     display: flex;
     flex-wrap: wrap;
@@ -131,7 +136,7 @@ body {
 }
 
 .search-input {
-    font-family: Jura;
+    font-family: Jura, Arial, sans-serif;
     width: 100%;
     padding: 8px;
     padding-right: 30px;
