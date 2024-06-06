@@ -1,3 +1,4 @@
+/* Basic styling for every page: */
 body {
     background-color: #2e2e2e;
     color: #ffffff;
@@ -6,99 +7,13 @@ body {
     padding: 2vh 2vw;
 }
 
-#title {
-    font-size: 100px;
+h2 {
+    font-size: 2.1em;
 }
 
-.logo {
-    width: 40%;
-}
 
-.mobile-image {
-    display: none;
-    width: 36%;
-}
-  
-.desktop-image {
-    display: block;
-}
-
-.movie {
-    width: 200px;
-    padding: 0px 10px 0px 10px;
-}
-
-#results, #popular-movies, #upcoming-movies {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: space-between;
-}
-
-#results div, #movieDetail, .result-item {
-    background-color: #444444;
-    padding: 10px;
-    border-radius: 5px;
-    text-align: center;
-    width: 200px;
-}
-
-#movieDetail {
-    padding: 20px;
-    border-radius: 10px;
-}
-
-#movieDetail h1 {
-    font-size: 2em;
-    margin-top: 20px;
-}
-
-#movieDetail p {
-    font-size: 1.2em;
-}
-
-#results img, #movieDetail img, .result-item img {
-    border-radius: 5px;
-    max-width: 100%;
-}
-
-#movieDetail img {
-    border-radius: 10px;
-}
-
-#popular-movies .result-item, #upcoming-movies .result-item {
-    overflow: hidden;
-    height: 300px;
-    position: relative;
-}
-
-#popular-movies img, #upcoming-movies img {
-    transition: transform 0.3s ease-in-out;
-    width: 100%;
-    height: auto;  /* Maintain aspect ratio */
-}
-
-#popular-movies img:hover, #upcoming-movies img:hover {
-    transform: scale(1.1);
-}
-
-#results .result-item p, #popular-movies .result-item p, #upcoming-movies .result-item p {
-    margin-top: 10px;
-    color: #ffffff;
-}
-
-.container, .colset-2-its {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
+/**Navigation-Bar:**/
+/* Styling for navigation-bar: */
 .navbar {
     background-color: #333;
     padding: 1rem;
@@ -164,23 +79,94 @@ body {
     z-index: 1;
 }
 
-.movie-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 1rem;
-    margin-top: 20px;
+.logo {
+    width: 40%;
 }
 
-.movie-item img {
-    width: 100%;
-    border-radius: 8px;
+.mobile-image {
+    display: none;
+    width: 36%;
+}
+  
+.desktop-image {
+    display: block;
 }
 
-.movie-item p {
+
+/** Home: **/
+/* Styling for movies on Home: */
+.container, .colset-2-its {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.movie {
+    width: 200px;
+    padding: 0px 10px 0px 10px;
+}
+
+.movieTitle {
+    color:aliceblue;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.movieTitle:hover {
+    color:rgb(35, 208, 251);
+}
+
+#results, #popular-movies, #upcoming-movies {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    column-gap: 25px;
+    padding-right: 12px;
+}
+
+#results div, .result-item {
+    background-color: #444444;
+    padding: 10px;
+    border-radius: 5px;
     text-align: center;
-    margin: 0.5rem 0;
+    width: 200px;
 }
 
+#results img, .result-item img {
+    border-radius: 5px;
+    max-width: 100%;
+}
+
+#popular-movies .result-item, #upcoming-movies .result-item {
+    overflow: hidden;
+    height: 300px;
+    position: relative;
+}
+
+#popular-movies img, #upcoming-movies img {
+    transition: transform 0.3s ease-in-out;
+    width: 100%;
+    height: auto;
+}
+
+#popular-movies img:hover, #upcoming-movies img:hover {
+    transform: scale(1.1);
+}
+
+#results .result-item p, #popular-movies .result-item p, #upcoming-movies .result-item p {
+    margin-top: 10px;
+    color: #ffffff;
+}
+
+
+/**MovieDetail:**/
+/* Styling for overview of a movie: */
 .movie-detail-container {
     padding: 20px;
     color: #fff;
@@ -284,5 +270,13 @@ body {
   
     .desktop-image {
         display: none;
+    }
+
+    #results, #popular-movies, #upcoming-movies {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 20px;
+        column-gap: 25px;
+        padding-right: 20px;
     }
 }
