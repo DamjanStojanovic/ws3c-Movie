@@ -34,7 +34,7 @@
 }
 
 .movie-card:hover img {
-  transform: scale(1.1); /* Zoom effect */
+  transform: scale(1.1);
 }
 
 @media (min-width: 600px) {

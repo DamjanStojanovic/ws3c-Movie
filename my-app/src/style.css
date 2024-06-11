@@ -1,16 +1,25 @@
 /* Basic styling for every page: */
 body {
-    background-color: #2e2e2e;
     color: #ffffff;
     font-family: Jura, Arial, sans-serif;
     margin: 0;
     padding: 2vh 2vw;
-    background: linear-gradient(90deg, rgba(0,53,63,1) 0%, rgba(9,102,121,1) 46%, rgba(0,212,255,1) 100%);
+    background-image: url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+    background-attachment: fixed;
+    background-size: contain;
 }
 
 .glassmorphism-effect {
+    backdrop-filter: blur(4px) saturate(180%);
+    -webkit-backdrop-filter: blur(4px) saturate(180%);
+    background-color: rgba(17, 25, 40, 0.4);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.glassmorphism-effect-dark {
     backdrop-filter: blur(16px) saturate(180%);
-    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
     background-color: rgba(17, 25, 40, 0.75);
     border-radius: 12px;
     border: 1px solid rgba(255, 255, 255, 0.125);
@@ -25,7 +34,6 @@ h2 {
 /**Navigation-Bar:**/
 /* Styling for navigation-bar: */
 .navbar {
-    background-color: #333;
     padding: 1rem;
     display: flex;
     align-items: center;
@@ -173,104 +181,6 @@ h2 {
     margin-top: 10px;
     color: #ffffff;
 }
-
-
-/**MovieDetail:**/
-/* Styling for overview of a movie: */
-.movie-detail-container {
-    padding: 20px;
-    color: #fff;
-    background-color: #333;
-}
-
-.movie-detail-header {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 20px;
-    position: relative;
-    z-index: 1;
-    background-size: cover;
-    background-position: right;
-    width: 100%;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.movie-detail-header img.movie-poster {
-    position: relative;
-    z-index: 1;
-}
-
-.movie-poster {
-    width: 300px;
-    border-radius: 10px;
-    margin-right: 20px;
-}
-
-.movie-info {
-    max-width: 600px;
-    position: relative;
-    z-index: 1;
-}
-
-.movie-info h1 {
-    margin: 0;
-    font-size: 2em;
-}
-
-.movie-info p {
-    margin: 10px 0;
-    font-size: 1em;
-}
-
-.movie-rating {
-    margin: 10px 0;
-    font-size: 1.2em;
-}
-
-.watchlist-button {
-    padding: 10px 20px;
-    margin: 10px 0;
-    font-size: 1em;
-    color: #fff;
-    background-color: #e50914;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.watchlist-button:hover {
-    background-color: #f40612;
-}
-
-.movie-trailer {
-    margin-top: 20px;
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
-    height: 0;
-    overflow: hidden;
-}
-
-.trailer-iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.trailer-placeholder {
-    width: 100%;
-    height: 400px;
-    background-color: #555;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    font-size: 1.5em;
-    border-radius: 10px;
-}
-
 
 /* For mobile-first (vertical and horizontal view): */
 @media (max-width: 768px) {

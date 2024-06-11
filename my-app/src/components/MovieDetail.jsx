@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { fetchData } from '../api/api';
+import '../styles/MovieDetails.css';
 
 const MovieDetail = () => {
     const { id } = useParams();
@@ -65,19 +66,20 @@ const MovieDetail = () => {
 
     return (
         <div className="movie-detail-container">
-            <div className="movie-detail-header"
-                 style={{ backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 100%), url(https://image.tmdb.org/t/p/original${backgroundImage})` }}
-            >
+            <div className="movie-detail-header "
+                 style={{
+                     backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 100%), url(https://image.tmdb.org/t/p/original${backgroundImage})`,
+                 }}>
                 <img
                     className="movie-poster"
                     src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
                     alt={movie.title}
                 />
-                <div className="movie-info">
+                <div className="movie-info glassmorphism-effect">
                     <h1>{movie.title} ({new Date(movie.release_date).getFullYear()})</h1>
                     <p>{new Date(movie.release_date).toLocaleDateString()}</p>
                     <div className="movie-rating">
-                        <span>Rating: {movie.vote_average} / 10</span>
+                        <span>Rating: {movie.vote_average.toFixed(1)} / 10</span>
                     </div>
                     { isInWatchlist ? (
                         <button className="watchlist-button" onClick={removeFromWatchlist}>Remove from Watchlist</button>

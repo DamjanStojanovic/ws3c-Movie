@@ -6,7 +6,7 @@ const Navbar = () => {
   const [movies, setMovies] = useState([]);
 
   return (
-      <nav className="navbar glassmorphism-effect">
+      <nav className="navbar glassmorphism-effect-dark">
         <Link to="/" className="navbar-brand">
           <img src={`${process.env.PUBLIC_URL}/MovieDB-Logo_mobile.png`} alt="MovieDB" className="logo mobile-image" />
           <img src={`${process.env.PUBLIC_URL}/MovieDB-Logo_desktop.png`} alt="MovieDB" className="logo desktop-image" />
