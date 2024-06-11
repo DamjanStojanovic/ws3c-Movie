@@ -1,0 +1,31 @@
+.movie-item a {
+  text-decoration: none;
+  display: block;
+}
+
+.movie-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  padding: 10px;
+}
+
+.movie-item {
+  overflow: hidden;
+  text-align: center;
+}
+
+.movie-item img {
+  border-radius: 10px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.movie-item p {
+  margin-top: 10px;
+  color: white;
+  font-size: 1rem;
+}
+
+.movie-item:hover img {
+  transform: scale(1.1);
+}
