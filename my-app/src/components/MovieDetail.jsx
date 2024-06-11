@@ -2,12 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { fetchData } from '../api/api';
+import watchlist from "./Watchlist";
 
 const MovieDetail = () => {
     const { id } = useParams();
     const [movie, setMovie] = useState(null);
     const [backgroundImage, setBackgroundImage] = useState([]);
     const [trailer, setTrailer] = useState(null);
+    const [isInWatchlist, setIsInWatchlist] = useState(false);
+    const watchlist = Cookies.get('watchlist') ? JSON.parse(Cookies.get('watchlist')) : [];
+
+
 
     useEffect(() => {
         const fetchMovie = async () => {
@@ -31,25 +36,28 @@ const MovieDetail = () => {
                 console.error("Error fetching movie data:", error);
             }
         };
-
         fetchMovie();
+
+        setIsInWatchlist(!!watchlist.find(item => item.id === parseInt(id)));
     }, [id]);
 
     const addToWatchlist = () => {
         const watchlist = Cookies.get('watchlist') ? JSON.parse(Cookies.get('watchlist')) : [];
-        console.log('Current watchlist:', watchlist);
-        if (!watchlist.find(item => item.id === movie.id)) {
-            watchlist.push({
-                id: movie.id,
-                title: movie.title,
-                poster_path: movie.poster_path,
-                release_date: movie.release_date
-            });
-            Cookies.set('watchlist', JSON.stringify(watchlist), { expires: 365 });
-            console.log('Updated watchlist:', watchlist);
-        } else {
-            console.log('Movie already in watchlist');
-        }
+        watchlist.push({
+            id: movie.id,
+            title: movie.title,
+            poster_path: movie.poster_path,
+            release_date: movie.release_date
+        });
+        Cookies.set('watchlist', JSON.stringify(watchlist), {expires: 365});
+        setIsInWatchlist(true);
+    };
+
+    const removeFromWatchlist = () => {
+        const watchlist = Cookies.get('watchlist') ? JSON.parse(Cookies.get('watchlist')) : [];
+        const updatedWatchlist = watchlist.filter(item => item.id !== movie.id);
+        Cookies.set('watchlist', JSON.stringify(updatedWatchlist), { expires: 365 });
+        setIsInWatchlist(false);
     };
 
     if (!movie) {
@@ -72,7 +80,11 @@ const MovieDetail = () => {
                     <div className="movie-rating">
                         <span>Rating: {movie.vote_average} / 10</span>
                     </div>
-                    <button className="watchlist-button" onClick={addToWatchlist}>Add to Watchlist</button>
+                    { isInWatchlist ? (
+                        <button className="watchlist-button" onClick={removeFromWatchlist}>Remove from Watchlist</button>
+                    ) : (
+                        <button className="watchlist-button" onClick={addToWatchlist}>Add to Watchlist</button>
+                    )}
                     <h3>Movie Description</h3>
                     <p>{movie.overview}</p>
                 </div>

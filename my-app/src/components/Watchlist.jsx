@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
+import MovieCarousel from "./MovieCarousel";
 
 const Watchlist = () => {
     const [watchlist, setWatchlist] = useState([]);
@@ -13,25 +14,8 @@ const Watchlist = () => {
 
     return (
         <div className="watchlist-container">
-            {console.log('Rendering Watchlist component')}
-            <h1>My Watchlist</h1>
             {watchlist.length > 0 ? (
-                <div className="watchlist-movies">
-                    {watchlist.map(movie => (
-                        <div key={movie.id} className="watchlist-movie">
-                            <Link to={`/movie/${movie.id}`}>
-                                <img
-                                    src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
-                                    alt={movie.title}
-                                />
-                            </Link>
-                            <div className="movie-info">
-                                <h2>{movie.title}</h2>
-                                <p>{new Date(movie.release_date).getFullYear()}</p>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+                <MovieCarousel title="My Watchlist" movies={watchlist}/>
             ) : (
                 <p>Your watchlist is empty.</p>
             )}
