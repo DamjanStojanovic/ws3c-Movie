@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Cookies from 'js-cookie';
-import { Link } from 'react-router-dom';
 import MovieCarousel from "./MovieCarousel";
 
 const Watchlist = () => {

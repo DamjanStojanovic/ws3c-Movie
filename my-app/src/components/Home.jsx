@@ -1,13 +1,10 @@
 import React, {useEffect, useState} from "react";
-import {Link, Route, Routes, useLocation} from "react-router-dom";
 import {fetchData} from "../api/api";
-import MovieDetail from "./MovieDetail";
 import MovieCarousel from "./MovieCarousel";
 
 function Home() {
     const [popularMovies, setPopularMovies] = useState([]);
     const [upcomingMovies, setUpcomingMovies] = useState([]);
-    const location = useLocation();
 
     const loadPopularMovies = async () => {
         const data = await fetchData('/movie/popular?language=en-US&page=1');

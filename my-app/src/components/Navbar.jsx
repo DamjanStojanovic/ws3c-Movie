@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import Search from "./Search";
 
 const Navbar = () => {
-    const [movies, setMovies] = useState([]);
+    const [setMovies] = useState([]);
 
     return (
         <nav className="navbar glassmorphism-effect">
