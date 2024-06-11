@@ -1,18 +1,18 @@
 {
   "files": {
     "main.css": "/ws3c-Movie/static/css/main.12492006.css",
-    "main.js": "/ws3c-Movie/static/js/main.749ad1a2.js",
+    "main.js": "/ws3c-Movie/static/js/main.74e379e3.js",
     "static/js/453.ed3810f9.chunk.js": "/ws3c-Movie/static/js/453.ed3810f9.chunk.js",
     "static/media/revicons.eot": "/ws3c-Movie/static/media/revicons.a77de540a38981833f9e.eot",
     "static/media/revicons.ttf": "/ws3c-Movie/static/media/revicons.57fd05d4ae650374c8de.ttf",
     "static/media/revicons.woff": "/ws3c-Movie/static/media/revicons.e8746a624ed098489406.woff",
     "index.html": "/ws3c-Movie/index.html",
     "main.12492006.css.map": "/ws3c-Movie/static/css/main.12492006.css.map",
-    "main.749ad1a2.js.map": "/ws3c-Movie/static/js/main.749ad1a2.js.map",
+    "main.74e379e3.js.map": "/ws3c-Movie/static/js/main.74e379e3.js.map",
     "453.ed3810f9.chunk.js.map": "/ws3c-Movie/static/js/453.ed3810f9.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.12492006.css",
-    "static/js/main.749ad1a2.js"
+    "static/js/main.74e379e3.js"
   ]
 }
