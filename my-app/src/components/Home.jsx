@@ -30,59 +30,6 @@ function Home() {
             <MovieCarousel title="Upcoming Movies" movies={upcomingMovies}/>
         </div>
     );
-
-    // return (
-    //     location.pathname.startsWith('/movie/') ? (
-    //         <Routes>
-    //             <Route path="/movie/:id" element={<MovieDetail />} />
-    //         </Routes>
-    //     ) : (
-    //         <div className="container">
-    //             <section>
-    //                 <h2>Popular Movies</h2>
-    //                 <div id="popular-movies">
-    //                     {popularMovies.map((movie) => (
-    //                         movie.poster_path && movie.title && movie.title.trim() !== '' ? (
-    //                             <div className="movie">
-    //                                 <div key={movie.id} className="result-item">
-    //                                     <Link to={`movie/${movie.id}`} className="movieTitle">
-    //                                         <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-    //                                             alt={movie.title}
-    //                                             data-movie-id={movie.id}/>
-    //                                     </Link>
-    //                                 </div>
-    //                                 <Link to={`movie/${movie.id}`} className="movieTitle">
-    //                                     <p>{movie.title}</p>
-    //                                 </Link>
-    //                             </div>
-    //                         ) : null
-    //                     ))}
-    //                 </div>
-    //                 <div>
-    //                     <h2>Upcoming Movies</h2>
-    //                     <div id="upcoming-movies">
-    //                         {upcomingMovies.map((movie) => (
-    //                             movie.poster_path && movie.title && movie.title.trim() !== '' ? (
-    //                                 <div className="movie">
-    //                                     <div key={movie.id} className="result-item">
-    //                                         <Link to={`movie/${movie.id}`} className="movieTitle">
-    //                                             <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-    //                                                 alt={movie.title}
-    //                                                 data-movie-id={movie.id}/>
-    //                                         </Link>
-    //                                     </div>
-    //                                     <Link to={`movie/${movie.id}`} className="movieTitle">
-    //                                         <p>{movie.title}</p>
-    //                                     </Link>
-    //                                 </div>
-    //                             ) : null
-    //                         ))}
-    //                     </div>
-    //                 </div>
-    //             </section>
-    //         </div>
-    //     )
-    // );
 }
 
 export default Home;
