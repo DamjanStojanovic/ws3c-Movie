@@ -10,14 +10,14 @@ const Navbar = () => {
             <Link to="/" className="navbar-brand">
                 <img src={`${process.env.PUBLIC_URL}/MovieDB-Logo_mobile.png`} alt="MovieDB"
                      className="logo mobile-image"/>
-                <img src={`${process.env.PUBLIC_URL}/moviedb_logo_desktop.svg`} alt="MovieDB"
+                <img src={`${process.env.PUBLIC_URL}/MovieDB-Logo_desktop.png`} alt="MovieDB"
                      className="logo desktop-image"/>
             </Link>
             <Link to="/watchlist" className="navbar-brand">
                 <img src={`${process.env.PUBLIC_URL}/watchlist_mobile.png`} alt="Watchlist"
-                     className="logo mobile-image"/>
+                     className="watchlist-logo mobile-image"/>
                 <img src={`${process.env.PUBLIC_URL}/watchlist_desktop.png`} alt="Watchlist"
-                     className="logo desktop-image"/>
+                     className="watchlist-logo desktop-image"/>
             </Link>
             <Search setMovies={setMovies}/>
         </nav>
