@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import 'aos/dist/aos.css'; // Import AOS styles
+import AOS from 'aos'; // Import AOS library
 import '../styles/MovieCarousel.css';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 /*
   This component is a carousel that displays a list of movies.
@@ -34,6 +36,13 @@ const responsive = {
 };
 
 const MovieCarousel = ({ title, movies }) => {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // animation duration in milliseconds
+      once: true, // whether animation should happen only once - while scrolling down
+    });
+  }, []);
+
   return (
       <div className="movie-carousel-wrapper">
         <h2>{title}</h2>
@@ -49,7 +58,7 @@ const MovieCarousel = ({ title, movies }) => {
                     centerMode={true}
           >
             {movies.map(movie => (
-                <div className="movie-card" key={movie.id}>
+                <div className="movie-card" key={movie.id} data-aos="fade-up">
                   <Link to={`/movie/${movie.id}`}>
                     <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title} />
                     <h3>{movie.title}</h3>
