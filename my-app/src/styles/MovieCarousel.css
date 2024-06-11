@@ -1,0 +1,52 @@
+.movie-carousel-wrapper {
+  margin: 1rem 0;
+}
+
+.movie-carousel {
+  padding: 0;
+  box-shadow: 0 4px 8px black;
+}
+
+.movie-card {
+  padding: 1rem;
+  text-align: center;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+}
+
+.movie-card img {
+  width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px black;
+  transition: transform 0.3s ease-in-out;
+}
+
+.movie-card h3 {
+  margin-top: 1rem;
+  color:aliceblue;
+  transition: color 0.3s ease;
+}
+
+.movie-card:hover h3 {
+  color:rgb(35, 208, 251);
+}
+
+.movie-card:hover img {
+  transform: scale(1.1); /* Zoom effect */
+}
+
+@media (min-width: 600px) {
+  .movie-card img {
+    width: 150px;
+  }
+
+  .movie-card h3 {
+    font-size: 1.25rem;
+  }
+}
+
+.movie-card a {
+  text-decoration: none;
+}
