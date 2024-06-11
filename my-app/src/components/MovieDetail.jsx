@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { fetchData } from '../api/api';
-import watchlist from "./Watchlist";
 
 const MovieDetail = () => {
     const { id } = useParams();
@@ -96,7 +95,6 @@ const MovieDetail = () => {
                         className="trailer-iframe"
                         src={`https://www.youtube.com/embed/${trailer.key}`}
                         title="YouTube video player"
-                        frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                     ></iframe>
