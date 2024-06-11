@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import {BrowserRouter as Router, Navigate, Route, Routes} from 'react-router-dom';
 import './style.css';
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
@@ -16,6 +16,7 @@ function App() {
                 <Route path="/search" element={<SearchPage />} />
                 <Route path="/movie/:id" element={<MovieDetail />} />
                 <Route path="/watchlist" element={<Watchlist />} />
+                <Route path="*" element={<Navigate to="/" />} />
             </Routes>
         </Router>
     );
