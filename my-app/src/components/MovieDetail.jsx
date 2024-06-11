@@ -2,12 +2,17 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import { fetchData } from '../api/api';
+import '../styles/MovieDetails.css';
 
 const MovieDetail = () => {
     const { id } = useParams();
     const [movie, setMovie] = useState(null);
     const [backgroundImage, setBackgroundImage] = useState([]);
     const [trailer, setTrailer] = useState(null);
+    const [isInWatchlist, setIsInWatchlist] = useState(false);
+    const watchlist = Cookies.get('watchlist') ? JSON.parse(Cookies.get('watchlist')) : [];
+
+
 
     useEffect(() => {
         const fetchMovie = async () => {
@@ -31,25 +36,28 @@ const MovieDetail = () => {
                 console.error("Error fetching movie data:", error);
             }
         };
-
         fetchMovie();
+
+        setIsInWatchlist(!!watchlist.find(item => item.id === parseInt(id)));
     }, [id]);
 
     const addToWatchlist = () => {
         const watchlist = Cookies.get('watchlist') ? JSON.parse(Cookies.get('watchlist')) : [];
-        console.log('Current watchlist:', watchlist);
-        if (!watchlist.find(item => item.id === movie.id)) {
-            watchlist.push({
-                id: movie.id,
-                title: movie.title,
-                poster_path: movie.poster_path,
-                release_date: movie.release_date
-            });
-            Cookies.set('watchlist', JSON.stringify(watchlist), { expires: 365 });
-            console.log('Updated watchlist:', watchlist);
-        } else {
-            console.log('Movie already in watchlist');
-        }
+        watchlist.push({
+            id: movie.id,
+            title: movie.title,
+            poster_path: movie.poster_path,
+            release_date: movie.release_date
+        });
+        Cookies.set('watchlist', JSON.stringify(watchlist), {expires: 365});
+        setIsInWatchlist(true);
+    };
+
+    const removeFromWatchlist = () => {
+        const watchlist = Cookies.get('watchlist') ? JSON.parse(Cookies.get('watchlist')) : [];
+        const updatedWatchlist = watchlist.filter(item => item.id !== movie.id);
+        Cookies.set('watchlist', JSON.stringify(updatedWatchlist), { expires: 365 });
+        setIsInWatchlist(false);
     };
 
     if (!movie) {
@@ -58,21 +66,26 @@ const MovieDetail = () => {
 
     return (
         <div className="movie-detail-container">
-            <div className="movie-detail-header"
-                 style={{ backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 100%), url(https://image.tmdb.org/t/p/original${backgroundImage})` }}
-            >
+            <div className="movie-detail-header "
+                 style={{
+                     backgroundImage: `linear-gradient(to right, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 0) 100%), url(https://image.tmdb.org/t/p/original${backgroundImage})`,
+                 }}>
                 <img
                     className="movie-poster"
                     src={`https://image.tmdb.org/t/p/w300${movie.poster_path}`}
                     alt={movie.title}
                 />
-                <div className="movie-info">
+                <div className="movie-info glassmorphism-effect">
                     <h1>{movie.title} ({new Date(movie.release_date).getFullYear()})</h1>
                     <p>{new Date(movie.release_date).toLocaleDateString()}</p>
                     <div className="movie-rating">
-                        <span>Rating: {movie.vote_average} / 10</span>
+                        <span>Rating: {movie.vote_average.toFixed(1)} / 10</span>
                     </div>
-                    <button className="watchlist-button" onClick={addToWatchlist}>Add to Watchlist</button>
+                    { isInWatchlist ? (
+                        <button className="watchlist-button" onClick={removeFromWatchlist}>Remove from Watchlist</button>
+                    ) : (
+                        <button className="watchlist-button" onClick={addToWatchlist}>Add to Watchlist</button>
+                    )}
                     <h3>Movie Description</h3>
                     <p>{movie.overview}</p>
                 </div>
@@ -84,7 +97,6 @@ const MovieDetail = () => {
                         className="trailer-iframe"
                         src={`https://www.youtube.com/embed/${trailer.key}`}
                         title="YouTube video player"
-                        frameBorder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                         allowFullScreen
                     ></iframe>
